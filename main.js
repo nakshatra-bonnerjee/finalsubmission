@@ -2,8 +2,11 @@
    Products and the WhatsApp number come from _data/products.yml and _data/store.yml
    (the layout passes them in as window.SITE). Edit those files, not this one. */
 const WHATSAPP = window.SITE.whatsapp;
-// [category, item, unit, price, in stock?, emoji]
-const PRODUCTS = window.SITE.products.map(p => [p.category, p.name, p.unit, p.price, p.in_stock, p.emoji]);
+// [category, item, unit, price, in stock?, emoji, quantity, brand]
+const PRODUCTS = window.SITE.products.map(p => {
+  const qty = p.quantity == null ? 999 : p.quantity;
+  return [p.category, p.name, p.unit || "", p.price, qty > 0 && p.in_stock !== false, p.emoji || "🛒", qty, p.brand || ""];
+});
 
 const $ = id => document.getElementById(id);
 const cats = ["All", ...new Set(PRODUCTS.map(p => p[0]))];
@@ -26,17 +29,17 @@ function renderChips(){
 
 function renderShelves(){
  const q = $("search").value.trim().toLowerCase();
- const items = PRODUCTS.filter(p => (cat==="All" || p[0]===cat) && p[1].toLowerCase().includes(q));
+ const items = PRODUCTS.filter(p => (cat==="All" || p[0]===cat) && (p[1] + " " + p[7]).toLowerCase().includes(q));
  if(!items.length){ $("shelves").innerHTML = `<div class="empty">We couldn’t find that on the shelves. Message us on WhatsApp and we will check.</div>`; return; }
  $("shelves").innerHTML = cats.slice(1).map(c => {
   const here = items.filter(p => p[0]===c);
   if(!here.length) return "";
-  return `<div class="shelf"><h3>${c}</h3><div class="row">` + here.map(([,n,u,p,s,e]) => {
+  return `<div class="shelf"><h3>${c}</h3><div class="row">` + here.map(([,n,u,p,s,e,qmax,b]) => {
    const qty = cart[n] || 0;
    const act = !s ? `<button class="add" disabled>Sold out</button>`
-    : qty ? `<span class="step"><button type="button" data-d="-1" data-n="${n}" aria-label="Remove one ${n}">−</button><span>${qty}</span><button type="button" data-d="1" data-n="${n}" aria-label="Add one ${n}">+</button></span>`
+    : qty ? `<span class="step"><button type="button" data-d="-1" data-n="${n}" aria-label="Remove one ${n}">−</button><span>${qty}</span><button type="button" data-d="1" data-n="${n}" aria-label="Add one ${n}"${qty >= qmax ? " disabled" : ""}>+</button></span>`
     : `<button class="add" type="button" data-d="1" data-n="${n}">Add</button>`;
-   return `<div class="item${s?"":" sold"}"><div class="pack" aria-hidden="true">${e}</div><b>${n}</b><small>${u}${s?" · In stock":""}</small><span class="tag">${p==null?"ask us":"₹"+p}</span>${act}</div>`;
+   return `<div class="item${s?"":" sold"}"><div class="pack" aria-hidden="true">${e}</div><b>${n}</b><small>${[b && !n.toLowerCase().includes(b.toLowerCase()) ? b : "", u, s ? (qmax <= 10 ? "Only " + qmax + " left" : "In stock") : "Out of stock"].filter(Boolean).join(" · ")}</small><span class="tag">${p==null?"ask us":"₹"+p}</span>${act}</div>`;
   }).join("") + `</div></div>`;
  }).join("");
 }
@@ -57,7 +60,7 @@ function renderCart(){
 }
 
 function change(n,d){
- cart[n] = (cart[n]||0) + d;
+ cart[n] = Math.min(PRODUCTS.find(x => x[1]===n)[6], (cart[n]||0) + d);
  if(cart[n] <= 0) delete cart[n];
  renderShelves(); renderCart();
 }
