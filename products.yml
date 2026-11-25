@@ -1,0 +1,141 @@
+# Products shown on the shelves. Edit this file to change the shop.
+# price: a number in rupees, or null to show "ask us".  in_stock: true or false.
+
+- category: "Groceries and staples"
+  name: "Atta (wheat flour)"
+  unit: "1 kg"
+  price: null
+  in_stock: true
+  emoji: "🌾"
+- category: "Groceries and staples"
+  name: "Rice"
+  unit: "1 kg"
+  price: null
+  in_stock: true
+  emoji: "🍚"
+- category: "Groceries and staples"
+  name: "Toor dal"
+  unit: "500 g"
+  price: null
+  in_stock: true
+  emoji: "🫘"
+- category: "Packaged food and snacks"
+  name: "Instant noodles"
+  unit: "1 pack"
+  price: null
+  in_stock: true
+  emoji: "🍜"
+- category: "Packaged food and snacks"
+  name: "Namkeen"
+  unit: "1 pack"
+  price: null
+  in_stock: true
+  emoji: "🥨"
+- category: "Biscuits and chocolates"
+  name: "Glucose biscuits"
+  unit: "1 pack"
+  price: null
+  in_stock: true
+  emoji: "🍪"
+- category: "Biscuits and chocolates"
+  name: "Chocolate bar"
+  unit: "1 pc"
+  price: null
+  in_stock: true
+  emoji: "🍫"
+- category: "Cold drinks and beverages"
+  name: "Cold drink"
+  unit: "750 ml"
+  price: null
+  in_stock: true
+  emoji: "🥤"
+- category: "Cold drinks and beverages"
+  name: "Tea leaves"
+  unit: "250 g"
+  price: null
+  in_stock: true
+  emoji: "🍵"
+- category: "Dairy"
+  name: "Milk"
+  unit: "500 ml"
+  price: null
+  in_stock: true
+  emoji: "🥛"
+- category: "Dairy"
+  name: "Curd"
+  unit: "400 g"
+  price: null
+  in_stock: true
+  emoji: "🥣"
+- category: "Personal care"
+  name: "Toothpaste"
+  unit: "1 pc"
+  price: null
+  in_stock: true
+  emoji: "🪥"
+- category: "Personal care"
+  name: "Shampoo"
+  unit: "1 bottle"
+  price: null
+  in_stock: true
+  emoji: "🧴"
+- category: "Soaps and detergents"
+  name: "Bathing soap"
+  unit: "1 pc"
+  price: null
+  in_stock: true
+  emoji: "🧼"
+- category: "Soaps and detergents"
+  name: "Detergent powder"
+  unit: "1 kg"
+  price: null
+  in_stock: true
+  emoji: "🧺"
+- category: "Household cleaning"
+  name: "Floor cleaner"
+  unit: "1 bottle"
+  price: null
+  in_stock: true
+  emoji: "🧽"
+- category: "Household cleaning"
+  name: "Dishwash liquid"
+  unit: "1 bottle"
+  price: null
+  in_stock: true
+  emoji: "🫧"
+- category: "Stationery"
+  name: "Notebook"
+  unit: "1 pc"
+  price: null
+  in_stock: true
+  emoji: "📓"
+- category: "Stationery"
+  name: "Ball pen"
+  unit: "1 pc"
+  price: null
+  in_stock: true
+  emoji: "🖊️"
+- category: "Puja essentials"
+  name: "Incense sticks"
+  unit: "1 pack"
+  price: null
+  in_stock: true
+  emoji: "🪔"
+- category: "Puja essentials"
+  name: "Camphor"
+  unit: "1 pack"
+  price: null
+  in_stock: true
+  emoji: "🕯️"
+- category: "Baby care"
+  name: "Baby soap"
+  unit: "1 pc"
+  price: null
+  in_stock: true
+  emoji: "🍼"
+- category: "Baby care"
+  name: "Diapers"
+  unit: "1 pack"
+  price: null
+  in_stock: true
+  emoji: "👶"

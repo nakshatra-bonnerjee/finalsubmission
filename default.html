@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ site.title }}{% if page.title %} | {{ page.title }}{% endif %}</title>
+<meta name="description" content="{{ site.description }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@500;700&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="{{ '/assets/images/logo-icon.png' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+{% include header.html %}
+<main id="top">
+{{ content }}
+</main>
+<a class="float" id="float" href="#order">View slip (<span id="fcount">0</span>)</a>
+{% include footer.html %}
+<script>
+/* Data from _data/store.yml and _data/products.yml, handed to assets/js/main.js */
+window.SITE = {
+  whatsapp: {{ site.data.store.whatsapp | jsonify }},
+  products: {{ site.data.products | jsonify }}
+};
+</script>
+<script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

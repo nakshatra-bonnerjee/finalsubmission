@@ -2,7 +2,7 @@
    Sections: 1. Base  2. Shopfront  3. Shelves  4. Counter  5. About, steps, visit  6. Decoration (at the end)
    Colours live in :root. Change them there to re-theme the whole site. */
 
-:root{--green:#12503c;--green-d:#0b3426;--gold:#f2c14e;--wood:#a8703f;--wood-d:#5e3b1f;--ink:#1e2a26;--mute:#5d6b66;--bg:#eef3ef;--paper:#fffdf5;--chalk:#26332f;--ok:#1b7f4d;--no:#b3392f;
+:root{--green:#124f1c;--green-d:#093c15;--gold:#e3a021;--wood:#a8703f;--wood-d:#5e3b1f;--ink:#1e2a26;--mute:#5d6b66;--bg:#eef3ef;--paper:#fffdf5;--chalk:#26332f;--ok:#1b7f4d;--no:#b3392f;
 --head:"Bree Serif",Georgia,serif;--hand:"Caveat","Segoe Print",cursive;--body:"Hind Siliguri",system-ui,-apple-system,"Segoe UI",sans-serif}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -123,7 +123,7 @@ footer{background:var(--green-d);color:#cfe0d8;padding:26px 0;font-size:.95rem}
 
 /* ================= 6. DECORATION ================= */
 ::selection{background:var(--gold);color:var(--green-d)}
-body{background-image:radial-gradient(rgba(18,80,60,.07) 1.5px,transparent 1.6px);background-size:22px 22px}
+body{background-image:radial-gradient(rgba(18,79,28,.07) 1.5px,transparent 1.6px);background-size:22px 22px}
 
 /* marigold dot ornament under every heading */
 h2::after{content:"";display:block;width:100px;height:12px;margin-top:8px;background:radial-gradient(circle,#ff9f1c 3px,transparent 3.5px) 0 50%/20px 12px repeat-x,radial-gradient(circle,var(--gold) 3px,transparent 3.5px) 10px 50%/20px 12px repeat-x}
@@ -139,8 +139,8 @@ nav a:hover{background-size:100% 3px}
 
 /* street: clouds, bunting, badge */
 .street{background:radial-gradient(ellipse 80px 20px at 10% 16%,rgba(255,255,255,.95) 60%,transparent),radial-gradient(ellipse 54px 15px at 14% 20%,rgba(255,255,255,.9) 60%,transparent),radial-gradient(ellipse 100px 24px at 88% 22%,rgba(255,255,255,.95) 60%,transparent),radial-gradient(ellipse 60px 16px at 82% 28%,rgba(255,255,255,.9) 60%,transparent),linear-gradient(#cfe3dc,#eef3ef 70%)}
-.bunting{height:34px;margin:0 8px 4px;background:linear-gradient(var(--wood-d),var(--wood-d)) 0 0/100% 3px no-repeat,repeating-linear-gradient(90deg,#e4572e 0 30px,#f2c14e 30px 60px,#2fbf71 60px 90px,#3a86ff 90px 120px);-webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) left/30px 100%;mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) left/30px 100%}
-.board{position:relative;box-shadow:inset 0 0 0 3px rgba(242,193,78,.35)}
+.bunting{height:34px;margin:0 8px 4px;background:linear-gradient(var(--wood-d),var(--wood-d)) 0 0/100% 3px no-repeat,repeating-linear-gradient(90deg,#e4572e 0 30px,#e3a021 30px 60px,#2fbf71 60px 90px,#3a86ff 90px 120px);-webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) left/30px 100%;mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) left/30px 100%}
+.board{position:relative;box-shadow:inset 0 0 0 3px rgba(227,160,33,.35)}
 .badge{position:absolute;z-index:3;right:18px;top:-30px;width:94px;height:94px;border-radius:50%;background:var(--gold);color:var(--green-d);display:grid;place-content:center;text-align:center;font-size:.72rem;line-height:1.15;font-weight:600;border:3px dashed var(--green-d);outline:4px solid var(--gold);transform:rotate(10deg);box-shadow:0 6px 10px rgba(0,0,0,.3)}
 .badge b{font:400 1.9rem/1 var(--head)}
 
@@ -158,7 +158,7 @@ nav a:hover{background-size:100% 3px}
 /* shelves: wood-grain planks, brass-screwed labels, price tags with a string hole */
 .row{border-bottom:0}
 .row::after{content:"";grid-column:1/-1;height:16px;margin:0 -14px;background:linear-gradient(rgba(255,255,255,.28),transparent 45%),repeating-linear-gradient(90deg,#a8703f 0 70px,#94622f 70px 73px,#b07a47 73px 150px)}
-.shelf h3{padding:4px 28px;background:radial-gradient(circle at 10px 50%,var(--gold) 2.5px,transparent 3px),radial-gradient(circle at calc(100% - 10px) 50%,var(--gold) 2.5px,transparent 3px),var(--green);box-shadow:inset 0 0 0 2px rgba(242,193,78,.45)}
+.shelf h3{padding:4px 28px;background:radial-gradient(circle at 10px 50%,var(--gold) 2.5px,transparent 3px),radial-gradient(circle at calc(100% - 10px) 50%,var(--gold) 2.5px,transparent 3px),var(--green);box-shadow:inset 0 0 0 2px rgba(227,160,33,.45)}
 .tag{position:relative;padding-left:22px}
 .tag::before{content:"";position:absolute;left:7px;top:50%;width:7px;height:7px;margin-top:-3px;border-radius:50%;background:var(--bg);box-shadow:inset 1px 1px 1px rgba(0,0,0,.45)}
 .item:hover .pack{animation:wob .6s}
@@ -169,7 +169,7 @@ nav a:hover{background-size:100% 3px}
 #order::before,.about::before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px}
 #order::before{background:radial-gradient(circle at 14px 14px,var(--wood-d) 13px,transparent 14px) 0 0/28px 14px repeat-x}
 .about::before{background:radial-gradient(circle at 14px 14px,#fff 13px,transparent 14px) 0 0/28px 14px repeat-x}
-.slip::after{content:"";position:absolute;top:-14px;left:50%;width:100px;height:28px;margin-left:-50px;background:rgba(242,193,78,.75);transform:rotate(-3deg);box-shadow:0 1px 2px rgba(0,0,0,.25)}
+.slip::after{content:"";position:absolute;top:-14px;left:50%;width:100px;height:28px;margin-left:-50px;background:rgba(227,160,33,.75);transform:rotate(-3deg);box-shadow:0 1px 2px rgba(0,0,0,.25)}
 .form{border-top:8px solid var(--gold)}
 
 /* chalkboard: smudges and a ledge */
@@ -187,3 +187,13 @@ footer{border-top:8px solid var(--gold);background-image:repeating-linear-gradie
  .garland{height:44px}
 }
 @media (prefers-reduced-motion:reduce){.item:hover .pack,.float.show{animation:none}}
+
+/* ================= 7. LOGO ================= */
+:root{--cream:#fcf6e4}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{height:38px;width:auto;background:var(--cream);border-radius:8px;padding:2px}
+.board{background:var(--cream);color:var(--green-d);padding:20px 16px 14px}
+.board h1{font-size:0;line-height:0}
+.board h1 img{display:block;margin:0 auto;width:min(100%,520px);height:auto}
+.board p{color:var(--green-d);font-weight:600;margin-top:6px}
+@media (max-width:720px){.brand{font-size:1rem}}

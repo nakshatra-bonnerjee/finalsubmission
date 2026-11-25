@@ -1,0 +1,6 @@
+<header>
+ <div class="wrap">
+  <a class="brand" href="#top"><img src="{{ '/assets/images/logo-icon.png' | relative_url }}" alt="" width="60" height="38">{{ site.data.store.name }}</a>
+  <nav aria-label="Main">{% for n in site.data.store.nav %}<a href="{{ n.href }}">{{ n.label }}</a>{% endfor %}</nav>
+ </div>
+</header>

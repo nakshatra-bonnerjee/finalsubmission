@@ -1,0 +1,27 @@
+name: Vinod General Stores
+# WhatsApp number: country code + number, digits only (e.g. "919876543210")
+whatsapp: "91XXXXXXXXXX"
+address:
+  line1: New Alipore, Block P
+  line2: Kolkata, West Bengal
+nav:
+  - {label: Shop, href: "#shop"}
+  - {label: Order, href: "#order"}
+  - {label: About, href: "#about"}
+  - {label: Visit, href: "#visit"}
+hours:
+  - {label: Monday to Saturday, value: 8 AM to 10 PM}
+  - {label: Sunday, value: Closed}
+  - {label: Home delivery, value: New Alipore}
+  - {label: We accept, value: Cash and UPI}
+steps:
+  - {title: Pick from the shelves, text: Add what you need to your slip.}
+  - {title: Send it on WhatsApp, text: We get your list and address.}
+  - {title: Pay at your door, text: "Cash or UPI, whichever you prefer."}
+about:
+  - {title: Groceries and food, text: "Staples, packaged food, snacks, biscuits, chocolates, dairy"}
+  - {title: Cold drinks, text: Cold drinks and other beverages}
+  - {title: Home and cleaning, text: "Soaps, detergents, household cleaning supplies"}
+  - {title: Personal and baby care, text: Personal care items and baby care products}
+  - {title: Puja essentials, text: Your daily puja needs}
+  - {title: Stationery, text: Stationery and other daily necessities}

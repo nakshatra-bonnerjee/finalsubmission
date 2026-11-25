@@ -1,31 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vinod General Stores | New Alipore, Kolkata</title>
-<meta name="description" content="Neighbourhood general store in New Alipore, Block P, Kolkata. Groceries and household essentials with home delivery in New Alipore. Order on WhatsApp.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@500;700&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<header>
- <div class="wrap">
-  <a class="brand" href="#top">Vinod General Stores</a>
-  <nav aria-label="Main"><a href="#shop">Shop</a><a href="#order">Order</a><a href="#about">About</a><a href="#visit">Visit</a></nav>
- </div>
-</header>
-
-<main id="top">
+---
+layout: default
+title: New Alipore, Kolkata
+---
  <div class="street">
   <div class="front">
    <div class="bunting" aria-hidden="true"></div>
    <div class="board">
     <div class="badge" aria-hidden="true"><b>10+</b>years in<br>New Alipore</div>
-    <h1>Vinod General Stores</h1>
+    <h1><img src="{{ '/assets/images/logo.png' | relative_url }}" alt="Vinod General Stores. Your Neighbourhood. Your Everyday Essentials." width="520" height="347"></h1>
     <p>New Alipore, Block P, Kolkata. Serving the neighbourhood for over 10 years.</p>
    </div>
    <div class="awning" aria-hidden="true"></div>
@@ -81,9 +63,9 @@
    <h2>As easy as the shop next door</h2>
    <p class="lead">No app and no sign-up.</p>
    <ol class="how">
-    <li><b>Pick from the shelves</b>Add what you need to your slip.</li>
-    <li><b>Send it on WhatsApp</b>We get your list and address.</li>
-    <li><b>Pay at your door</b>Cash or UPI, whichever you prefer.</li>
+    {% for s in site.data.store.steps %}
+    <li><b>{{ s.title }}</b>{{ s.text }}</li>
+    {% endfor %}
    </ol>
   </div>
  </section>
@@ -93,12 +75,9 @@
    <h2>The store on the corner</h2>
    <p class="lead">Vinod General Stores has been part of New Alipore for over 10 years. Whether it is a packet of biscuits, a bottle of cleaner or incense for the evening puja, you will find it here.</p>
    <dl class="labels">
-    <div><dt>Groceries and food</dt><dd>Staples, packaged food, snacks, biscuits, chocolates, dairy</dd></div>
-    <div><dt>Cold drinks</dt><dd>Cold drinks and other beverages</dd></div>
-    <div><dt>Home and cleaning</dt><dd>Soaps, detergents, household cleaning supplies</dd></div>
-    <div><dt>Personal and baby care</dt><dd>Personal care items and baby care products</dd></div>
-    <div><dt>Puja essentials</dt><dd>Your daily puja needs</dd></div>
-    <div><dt>Stationery</dt><dd>Stationery and other daily necessities</dd></div>
+    {% for a in site.data.store.about %}
+    <div><dt>{{ a.title }}</dt><dd>{{ a.text }}</dd></div>
+    {% endfor %}
    </dl>
   </div>
  </section>
@@ -107,139 +86,13 @@
   <div class="wrap visit">
    <div>
     <h2>Drop by or message us</h2>
-    <p class="lead">New Alipore, Block P,<br>Kolkata, West Bengal</p>
+    <p class="lead">{{ site.data.store.address.line1 }},<br>{{ site.data.store.address.line2 }}</p>
     <p><a class="cta" id="wa2" href="#">Chat on WhatsApp</a></p>
     <p><a href="https://www.google.com/maps/search/?api=1&query=Vinod+General+Stores+New+Alipore+Block+P+Kolkata" target="_blank" rel="noopener">Find us on Google Maps (opens in a new tab)</a></p>
    </div>
    <div class="chalk">
     <h3>Store hours</h3>
-    <div><span>Monday to Saturday</span><span>8 AM to 10 PM</span></div>
-    <div><span>Sunday</span><span>Closed</span></div>
-    <div><span>Home delivery</span><span>New Alipore</span></div>
-    <div><span>We accept</span><span>Cash and UPI</span></div>
+    {% for h in site.data.store.hours %}<div><span>{{ h.label }}</span><span>{{ h.value }}</span></div>{% endfor %}
    </div>
   </div>
  </section>
-</main>
-
-<a class="float" id="float" href="#order">View slip (<span id="fcount">0</span>)</a>
-
-<footer><div class="wrap">© <span id="yr"></span> Vinod General Stores, New Alipore, Kolkata. Website built as a student project with the owner’s permission.</div></footer>
-
-<script>
-/* ====== EDIT THESE ====== */
-// WhatsApp number: country code + number, digits only (e.g. 919876543210)
-const WHATSAPP = "91XXXXXXXXXX";
-
-// [category, item, unit, price in ₹ (or null = "ask us"), in stock?, emoji]
-// These are generic examples. Replace with the store's real items, prices and stock.
-const PRODUCTS = [
- ["Groceries and staples","Atta (wheat flour)","1 kg",null,true,"🌾"],
- ["Groceries and staples","Rice","1 kg",null,true,"🍚"],
- ["Groceries and staples","Toor dal","500 g",null,true,"🫘"],
- ["Packaged food and snacks","Instant noodles","1 pack",null,true,"🍜"],
- ["Packaged food and snacks","Namkeen","1 pack",null,true,"🥨"],
- ["Biscuits and chocolates","Glucose biscuits","1 pack",null,true,"🍪"],
- ["Biscuits and chocolates","Chocolate bar","1 pc",null,true,"🍫"],
- ["Cold drinks and beverages","Cold drink","750 ml",null,true,"🥤"],
- ["Cold drinks and beverages","Tea leaves","250 g",null,true,"🍵"],
- ["Dairy","Milk","500 ml",null,true,"🥛"],
- ["Dairy","Curd","400 g",null,true,"🥣"],
- ["Personal care","Toothpaste","1 pc",null,true,"🪥"],
- ["Personal care","Shampoo","1 bottle",null,true,"🧴"],
- ["Soaps and detergents","Bathing soap","1 pc",null,true,"🧼"],
- ["Soaps and detergents","Detergent powder","1 kg",null,true,"🧺"],
- ["Household cleaning","Floor cleaner","1 bottle",null,true,"🧽"],
- ["Household cleaning","Dishwash liquid","1 bottle",null,true,"🫧"],
- ["Stationery","Notebook","1 pc",null,true,"📓"],
- ["Stationery","Ball pen","1 pc",null,true,"🖊️"],
- ["Puja essentials","Incense sticks","1 pack",null,true,"🪔"],
- ["Puja essentials","Camphor","1 pack",null,true,"🕯️"],
- ["Baby care","Baby soap","1 pc",null,true,"🍼"],
- ["Baby care","Diapers","1 pack",null,true,"👶"]
-];
-/* ======================== */
-
-const $ = id => document.getElementById(id);
-const cats = ["All", ...new Set(PRODUCTS.map(p => p[0]))];
-const cart = {};
-let cat = "All";
-
-function updateStatus(){
- const parts = new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Kolkata",weekday:"short",hour:"numeric",hour12:false}).formatToParts(new Date());
- const day = parts.find(p => p.type==="weekday").value;
- const hr = parseInt(parts.find(p => p.type==="hour").value,10) % 24;
- const open = day !== "Sun" && hr >= 8 && hr < 22;
- $("status").className = "hang " + (open ? "open" : "closed");
- $("statusText").textContent = open ? "We’re open!" : "Sorry, we’re closed";
- $("statusSub").textContent = open ? "Until 10 PM tonight" : "Back 8 AM, Monday to Saturday";
-}
-
-function renderChips(){
- $("chips").innerHTML = cats.map(c => `<button class="chip" type="button" aria-pressed="${c===cat}" data-c="${c}">${c==="All"?"All shelves":c}</button>`).join("");
-}
-
-function renderShelves(){
- const q = $("search").value.trim().toLowerCase();
- const items = PRODUCTS.filter(p => (cat==="All" || p[0]===cat) && p[1].toLowerCase().includes(q));
- if(!items.length){ $("shelves").innerHTML = `<div class="empty">We couldn’t find that on the shelves. Message us on WhatsApp and we will check.</div>`; return; }
- $("shelves").innerHTML = cats.slice(1).map(c => {
-  const here = items.filter(p => p[0]===c);
-  if(!here.length) return "";
-  return `<div class="shelf"><h3>${c}</h3><div class="row">` + here.map(([,n,u,p,s,e]) => {
-   const qty = cart[n] || 0;
-   const act = !s ? `<button class="add" disabled>Sold out</button>`
-    : qty ? `<span class="step"><button type="button" data-d="-1" data-n="${n}" aria-label="Remove one ${n}">−</button><span>${qty}</span><button type="button" data-d="1" data-n="${n}" aria-label="Add one ${n}">+</button></span>`
-    : `<button class="add" type="button" data-d="1" data-n="${n}">Add</button>`;
-   return `<div class="item${s?"":" sold"}"><div class="pack" aria-hidden="true">${e}</div><b>${n}</b><small>${u}${s?" · In stock":""}</small><span class="tag">${p==null?"ask us":"₹"+p}</span>${act}</div>`;
-  }).join("") + `</div></div>`;
- }).join("");
-}
-
-function renderCart(){
- const names = Object.keys(cart);
- const count = names.reduce((a,n) => a + cart[n], 0);
- $("fcount").textContent = count;
- $("float").classList.toggle("show", count > 0);
- if(!names.length){ $("cart").innerHTML = `<h3>Shopping slip</h3><p>Empty so far. <a href="#shop">Pick from the shelves</a>.</p>`; return; }
- let total = 0, allPriced = true;
- const lis = names.map(n => {
-  const p = PRODUCTS.find(x => x[1]===n);
-  if(p[3]==null) allPriced = false; else total += p[3]*cart[n];
-  return `<li><span>${n} × ${cart[n]}</span><span>${p[3]==null ? "" : "₹"+(p[3]*cart[n])}</span></li>`;
- }).join("");
- $("cart").innerHTML = `<h3>Shopping slip</h3><ul>${lis}</ul><p>${allPriced ? "Total: ₹"+total : "We will confirm prices."}</p>`;
-}
-
-function change(n,d){
- cart[n] = (cart[n]||0) + d;
- if(cart[n] <= 0) delete cart[n];
- renderShelves(); renderCart();
-}
-
-function waLink(text){ return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`; }
-function sendOrder(){
- const err = $("err"); err.textContent = "";
- const names = Object.keys(cart);
- if(!names.length){ err.textContent = "Add at least one item to your slip first."; return; }
- if(!$("name").value.trim()){ err.textContent = "Please enter your name."; $("name").focus(); return; }
- if(!$("addr").value.trim()){ err.textContent = "Please enter your delivery address."; $("addr").focus(); return; }
- if(/X/.test(WHATSAPP)){ err.textContent = "WhatsApp number not set yet. Edit the WHATSAPP value in index.html."; return; }
- const lines = names.map(n => `- ${n} (${PRODUCTS.find(x => x[1]===n)[2]}) × ${cart[n]}`);
- const msg = `Hello Vinod General Stores, I would like to order:\n${lines.join("\n")}\n\nName: ${$("name").value.trim()}\nAddress: ${$("addr").value.trim()}\nPayment: ${$("pay").value}` + ($("note").value.trim() ? `\nNote: ${$("note").value.trim()}` : "");
- window.open(waLink(msg), "_blank", "noopener");
-}
-
-$("chips").addEventListener("click", e => { const b = e.target.closest("[data-c]"); if(!b) return; cat = b.dataset.c; renderChips(); renderShelves(); });
-$("shelves").addEventListener("click", e => { const b = e.target.closest("[data-d]"); if(b) change(b.dataset.n, +b.dataset.d); });
-$("search").addEventListener("input", renderShelves);
-$("send").addEventListener("click", sendOrder);
-$("wa2").href = waLink("Hello Vinod General Stores, I have a question.");
-$("wa2").target = "_blank"; $("wa2").rel = "noopener";
-$("yr").textContent = new Date().getFullYear();
-
-updateStatus(); setInterval(updateStatus, 60000);
-renderChips(); renderShelves(); renderCart();
-</script>
-</body>
-</html>
