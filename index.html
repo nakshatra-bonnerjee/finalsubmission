@@ -7,7 +7,7 @@ title: New Alipore, Kolkata
    <div class="bunting" aria-hidden="true"></div>
    <div class="board">
     <div class="badge" aria-hidden="true"><b>10+</b>years in<br>New Alipore</div>
-    <h1><img src="{{ '/assets/images/logo.png' | relative_url }}" alt="Vinod General Stores. Your Neighbourhood. Your Everyday Essentials." width="520" height="347"></h1>
+    <h1><img src="assets/images/logo.png" alt="Vinod General Stores. Your Neighbourhood. Your Everyday Essentials." width="520" height="347"></h1>
     <p>New Alipore, Block P, Kolkata. Serving the neighbourhood for over 10 years.</p>
    </div>
    <div class="awning" aria-hidden="true"></div>
@@ -110,7 +110,7 @@ title: New Alipore, Kolkata
    <div class="photos">
     {% for p in site.data.gallery %}
     <figure>
-     <button class="ph" type="button" aria-label="View larger: {{ p.caption | escape }}"><img src="{{ '/assets/images/gallery/' | append: p.file | relative_url }}" alt="{{ p.alt | escape }}" width="{{ p.w }}" height="{{ p.h }}" loading="lazy"></button>
+     <button class="ph" type="button" aria-label="View larger: {{ p.caption | escape }}"><img src="assets/images/gallery/{{ p.file }}" alt="{{ p.alt | escape }}" width="{{ p.w }}" height="{{ p.h }}" loading="lazy"></button>
      <figcaption>{{ p.caption }}</figcaption>
     </figure>
     {% endfor %}

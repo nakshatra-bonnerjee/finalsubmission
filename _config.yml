@@ -1,8 +1,8 @@
 title: Vinod General Stores
 description: Neighbourhood general store in New Alipore, Block P, Kolkata. Groceries and household essentials with home delivery in New Alipore. Order on WhatsApp.
 lang: en
-# Project site (https://USERNAME.github.io/REPO): set baseurl to "/REPO".
-# User site (repo named USERNAME.github.io): leave baseurl empty.
+# baseurl can stay empty: every link on this one-page site is relative, so it works
+# at https://USERNAME.github.io/ and at https://USERNAME.github.io/REPO/ alike.
 baseurl: ""
 url: ""
 # No Jekyll theme: this site uses its own layout and CSS.
