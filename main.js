@@ -49,14 +49,14 @@ function renderCart(){
  const count = names.reduce((a,n) => a + cart[n], 0);
  $("fcount").textContent = count;
  $("float").classList.toggle("show", count > 0);
- if(!names.length){ $("cart").innerHTML = `<h3>Shopping slip</h3><p>Empty so far. <a href="#shop">Pick from the shelves</a>.</p>`; return; }
+ if(!names.length){ $("cart").innerHTML = `<h3>Shopping slip <span class="bn" lang="bn">বাজারের ফর্দ</span></h3><p>Empty so far. <a href="#shop">Pick from the shelves</a>.</p>`; return; }
  let total = 0, allPriced = true;
  const lis = names.map(n => {
   const p = PRODUCTS.find(x => x[1]===n);
   if(p[3]==null) allPriced = false; else total += p[3]*cart[n];
   return `<li><span>${n} × ${cart[n]}</span><span>${p[3]==null ? "" : "₹"+(p[3]*cart[n])}</span></li>`;
  }).join("");
- $("cart").innerHTML = `<h3>Shopping slip</h3><ul>${lis}</ul><p>${allPriced ? "Total: ₹"+total : "We will confirm prices."}</p>`;
+ $("cart").innerHTML = `<h3>Shopping slip <span class="bn" lang="bn">বাজারের ফর্দ</span></h3><ul>${lis}</ul><p>${allPriced ? "Total: ₹"+total : "We will confirm prices."}</p>`;
 }
 
 function change(n,d){
@@ -88,3 +88,14 @@ $("yr").textContent = new Date().getFullYear();
 
 updateStatus(); setInterval(updateStatus, 60000);
 renderChips(); renderShelves(); renderCart();
+
+/* Photo gallery: tap a photo to open it larger */
+const lb = $("lb");
+document.querySelectorAll(".ph").forEach(b => b.addEventListener("click", () => {
+ const img = b.querySelector("img");
+ $("lbImg").src = img.src; $("lbImg").alt = img.alt;
+ $("lbCap").textContent = b.parentElement.querySelector("figcaption").textContent;
+ lb.showModal();
+}));
+$("lbClose").addEventListener("click", () => lb.close());
+lb.addEventListener("click", e => { if (e.target === lb) lb.close(); });
